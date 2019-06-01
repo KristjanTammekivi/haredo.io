@@ -79,11 +79,11 @@ body {
 .toplinks {
     a {
         color: white;
-        transition: border-bottom ease-in-out 1s;
-        border-bottom: 0px solid transparent;
+        transition: border-bottom ease-in-out 0.5s;
+        border-bottom: 1px solid white;
         text-decoration: none;
         &:hover {
-            border-bottom: 1px solid white;
+            border-bottom: 0px solid transparent;
         }
         &:visited {
             color: white;
@@ -101,5 +101,24 @@ footer {
     margin-top: 80px;
     text-align: center;
     padding-top: 15px;
-    padding-bottom: 15px
+    padding-bottom: 15px;
+    font-size: 0.8em;
+    a {
+        color: white;
+        transition: border-bottom ease-in-out 0.5s;
+        border-bottom: 1px solid white;
+        text-decoration: none;
+        &:hover {
+            text-decoration: none;
+            color: white;
+            border-bottom: 0px solid transparent;
+        }
+        &:visited {
+            color: white;
+        }
+    }
+}
+
+#haredo-logo {
+    width: 200px;
 }

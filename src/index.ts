@@ -11,5 +11,6 @@ import 'prismjs/plugins/line-numbers/prism-line-numbers.css';
 import 'prismjs/plugins/keep-markup/prism-keep-markup';
 
 import './style.scss';
+import '../haredo.svg';
 
-Prism.highlightAll();
+window.onload = () => Prism.highlightAll();
