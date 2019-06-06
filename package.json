@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "webpack && cp favicon* dist/"
+    "build": "webpack && cp favicon* dist/ && cp _headers dist"
   },
   "license": "MIT",
   "private": true,
