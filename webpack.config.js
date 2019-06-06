@@ -64,7 +64,7 @@ module.exports = {
         extensions: ['.ts', '.js']
     },
     output: {
-        filename: '[name].js'
+        filename: '[name].[contenthash].js'
     },
     plugins: [
         new CleanWebpackPlugin(),
