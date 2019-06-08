@@ -12,3 +12,7 @@ import 'prismjs/plugins/keep-markup/prism-keep-markup';
 
 import './style.scss';
 import '../haredo.svg';
+import '../_headers';
+import '../favicon-16x16.png';
+import '../favicon-32x32.png';
+import '../favicon.ico';

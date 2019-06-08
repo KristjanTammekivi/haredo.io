@@ -27,7 +27,13 @@ module.exports = {
             },
             {
                 test: /\.css$/i,
-                use: ['style-loader', 'css-loader'],
+                use: [
+                    'style-loader',
+                    {
+                        loader: MiniCssExtractPlugin.loader
+                    },
+                    'css-loader'
+                ]
             },
             {
                 test: /\.scss$/,
@@ -48,7 +54,7 @@ module.exports = {
                 ]
             },
             {
-                test: /\.svg$/,
+                test: /\.(svg)$/,
                 use: [
                     {
                         loader: 'file-loader',
@@ -58,6 +64,17 @@ module.exports = {
                     }
                 ]
             },
+            {
+                test: /(_headers|favicon.*)/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]'
+                        }
+                    }
+                ]
+            }
         ],
     },
     resolve: {
