@@ -58,25 +58,24 @@
 
                 <h3 class="display-5">Typescript example</h3>
                 <pre>
-<code class="language-typescript line-numbers">import { Haredo, Queue } from 'haredo';
-const haredo = new Haredo({
+<code class="language-typescript line-numbers">import { haredo, q } from 'haredo';
+const rabbit = haredo({
     connection: 'amqp://localhost:5762'
 });
-haredo.connect();
 
 interface MyMessage {
     id: number;
     status: string;
 }
 
-const myQueue = new Queue&lt;MyMessage&gt;('myqueue');
+const myQueue = q&lt;MyMessage&gt;('myqueue');
 
-haredo.queue(myQueue)
-    .subscribe(message => {
-        console.log(message);
+rabbit.queue(myQueue)
+    .subscribe(({ data }) => {
+        console.log(data);
     });
 
-haredo.queue(myQueue)
+rabbit.queue(myQueue)
     .publish({
         id: 1,
         status: 'active'
@@ -87,18 +86,17 @@ haredo.queue(myQueue)
             <div class="col-lg-6">
                 <h3 class="display-5">Javascript example (with queue shorthand)</h3>
                 <pre>
-<code class="language-javascript line-numbers">const { Haredo } = require('haredo');
-const haredo = new Haredo({
+<code class="language-javascript line-numbers">const { haredo } = require('haredo');
+const rabbit = haredo({
     connection: 'amqp://localhost:5762'
 });
-haredo.connect();
 
-haredo.queue('myqueue')
+rabbit.queue('myqueue')
     .subscribe(message => {
         console.log(message);
     });
 
-haredo.queue('myqueue')
+rabbit.queue('myqueue')
     .publish({ id: 1, status: 'active' });</code>
             </pre>
             </div> <!-- End of .col-lg-6 -->
@@ -108,7 +106,7 @@ haredo.queue('myqueue')
 
     <footer class="page-footer font-small">
         <div class="container-fluid">
-            <div>Haredo | <a href="https://tammekivi.ee">Kristjan Tammekivi</a> | 2019</div>
+            <div>Haredo | <a href="https://tammekivi.ee">Kristjan Tammekivi</a> | 2020</div>
             <div>Haredo logo by <a href="https://marcopixel.eu/">Marco Vockner</a></div>
         </div>
     </footer>
