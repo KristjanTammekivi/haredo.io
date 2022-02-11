@@ -2,7 +2,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const webpack = require('webpack');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 const autoprefixer = require("autoprefixer");
@@ -17,6 +17,9 @@ module.exports = {
     mode: 'development',
     devServer: {
         disableHostCheck: true
+    },
+    output: {
+        path: 'dist'
     },
     module: {
         rules: [
@@ -44,12 +47,18 @@ module.exports = {
                     {
                         loader: "postcss-loader",
                         options: {
-                            plugins: [autoprefixer(), mqpacker(), cssdedupe()]
+                            postcssOptions: {
+                                plugins: [autoprefixer(), mqpacker(), cssdedupe()]
+                            }
                         }
                     },
                     {
                         loader: "sass-loader",
-                        options: { includePaths: [path.resolve(__dirname, "../src")] }
+                        options: {
+                            sassOptions: {
+                                includePaths: [path.resolve(__dirname, "../src")]
+                            }
+                        }
                     }
                 ]
             },
