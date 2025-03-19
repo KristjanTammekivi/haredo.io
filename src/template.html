@@ -60,9 +60,9 @@
 
                 <h4>Typescript example</h4>
                 <pre>
-<code class="language-typescript line-numbers">import { haredo, q } from 'haredo';
-const rabbit = haredo({
-    connection: 'amqp://localhost:5762'
+<code class="language-typescript line-numbers">import { Haredo, Queue } from 'haredo';
+const rabbit = Haredo({
+    url: 'amqp://localhost:5762'
 });
 
 interface MyMessage {
@@ -70,10 +70,10 @@ interface MyMessage {
     status: string;
 }
 
-const myQueue = q&lt;MyMessage&gt;('myqueue');
+const myQueue = Queue&lt;MyMessage&gt;('myqueue');
 
 rabbit.queue(myQueue)
-    .subscribe(({ data }) => {
+    .subscribe(data => {
         console.log(data);
     });
 
@@ -88,9 +88,9 @@ rabbit.queue(myQueue)
             <div class="col-lg-6">
                 <h4>Javascript example (with queue shorthand)</h4>
                 <pre>
-<code class="language-javascript line-numbers">const { haredo } = require('haredo');
-const rabbit = haredo({
-    connection: 'amqp://localhost:5762'
+<code class="language-javascript line-numbers">const { Haredo } = require('haredo');
+const rabbit = Haredo({
+    url: 'amqp://localhost:5762'
 });
 
 rabbit.queue('myqueue')
